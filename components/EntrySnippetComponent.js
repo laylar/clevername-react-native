@@ -10,6 +10,7 @@ function EntrySnippet(props) {
             <ListItem
                 title={item.date}
                 subtitle={item.snippet}
+                onPress={() => props.onPress(item.id)}
             />
         );
     };

@@ -1,49 +1,30 @@
 import React, { Component } from 'react';
-//import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 import { ENTRIES } from '../shared/entries'
 import EntrySnippet from './EntrySnippetComponent';
-
-/*
-const HomeNavigator = createStackNavigator(
-    {
-        Home: { screen: Home }
-    },
-    {
-        navigationOptions: {
-            headerStyle: {
-                backgroundColor: 'gray'
-            },
-            headerTintColor: 'black',
-            headerTitleStyle: {
-                color: 'white'
-            }
-        }
-    }
-)
-
-const MainNavigator = createDrawerNavigator(
-    {
-        Home: { screen: HomeNavigator }
-    },
-    {
-        drawerBackgroundColor: 'gray'
-    }
-)
-*/
+import EntryInfo from './EntryInfoComponent';
 
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            entries: ENTRIES
+            entries: ENTRIES,
+            selectedEntry: null
         };
     }
+
+    onEntrySelect(entryId) {
+        this.setState({ selectedEntry: entryId });
+    }
+
     render() {
         return (
-            <View>
-                <Text>This is a test text.</Text>
-                <EntrySnippet entries={this.state.entries} />
+            <View style={{ flex: 1 }}>
+                <Text>This is a test text in MainComponent.</Text>
+                <EntryInfo entry={this.state.entries.filter(entry => entry.id === this.state.selectedEntry)[0]} />
+                {/*A text entry box should go here if display is today's date*/}
+                <EntrySnippet entries={this.state.entries} onPress={entryId => this.onEntrySelect(entryId)} />
+
             </View>
         );
     }
