@@ -3,13 +3,13 @@ import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { View, Text } from 'react-native';
 
-function Entry(props) {
+function EntrySnippet(props) {
 
     const renderEntryItem = ({ item }) => {
         return (
             <ListItem
                 title={item.date}
-                subtitle={item.entry}
+                subtitle={item.snippet}
             />
         );
     };
@@ -26,4 +26,4 @@ function Entry(props) {
     );
 }
 
-export default Entry;
+export default EntrySnippet;

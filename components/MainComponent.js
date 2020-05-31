@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import { StyleSheet, Text, View } from 'react-native';
 import { ENTRIES } from '../shared/entries'
-import Entry from './EntryComponent';
+import EntrySnippet from './EntrySnippetComponent';
 
 /*
 const HomeNavigator = createStackNavigator(
@@ -43,7 +43,7 @@ class Main extends Component {
         return (
             <View>
                 <Text>This is a test text.</Text>
-                <Entry entries={this.state.entries} />
+                <EntrySnippet entries={this.state.entries} />
             </View>
         );
     }
