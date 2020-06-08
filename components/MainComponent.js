@@ -5,10 +5,21 @@ import { ENTRIES } from '../shared/entries'
 import EntrySnippet from './EntrySnippetComponent';
 import EntryInfo from './EntryInfoComponent';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
+import { Icon } from 'react-native-elements';
 
 const DirectoryNavigator = createStackNavigator(
     {
-        EntrySnippet: { screen: EntrySnippet },
+        EntrySnippet: {
+            screen: EntrySnippet,
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon
+                    name='pencil-square-o'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
         EntryInfo: { screen: EntryInfo }
     },
     {
@@ -30,7 +41,13 @@ const HomeNavigator = createStackNavigator(
         Home: { screen: Home }
     },
     {
-        navigationOptions: {
+        navigationOptions: ({ navigation }) => ({
+            headerLeft: <Icon
+                name='home'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />,
             headerStyle: {
                 backgroundColor: '#d1d3d3'
             },
@@ -38,7 +55,7 @@ const HomeNavigator = createStackNavigator(
             headerTitleStyle: {
                 color: '#000000'
             }
-        }
+        })
     }
 )
 
@@ -63,5 +80,13 @@ class Main extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    stackIcon: {
+        marginLeft: 10,
+        color: '#fff',
+        fontSize: 24
+    }
+});
 
 export default Main;
