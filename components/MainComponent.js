@@ -55,8 +55,9 @@ const HomeNavigator = createStackNavigator(
             },
             headerTintColor: '#7b7c7c',
             headerTitleStyle: {
-                color: '#000000'
-            }
+                color: '#000000',
+            },
+
         })
     }
 )
@@ -136,7 +137,10 @@ const styles = StyleSheet.create({
     },
     drawerHeaderText: {
         color: '#eaeaea',
-        fontSize: 24,
+        fontSize: 12,
+        fontStyle: 'italic',
+        textAlign: 'center',
+        flex: 1
     },
     drawerImage: {
         margin: 1,
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         color: '#fff',
         fontSize: 24
-    }
+    },
 });
 
 export default Main;
