@@ -7,7 +7,11 @@ import EntryInfo from './EntryInfoComponent';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-
+const activeTintGray = '#aaaaaa'
+const inactiveTintGray = '#383838'
+const drawerHeaderTextGray = '#474747'
+const drawerHeaderBackground = '#5637DD'
+const stackIconColor = '#fff'
 
 const DirectoryNavigator = createStackNavigator(
     {
@@ -73,7 +77,11 @@ const CustomDrawerContentComponent = props => (
                     <Text style={styles.drawerHeaderText}>Remember</Text>
                 </View>
             </View>
-            <DrawerItems {...props} />
+            <DrawerItems
+                {...props}
+                activeTintColor={activeTintGray}
+                inactiveTintColor={inactiveTintGray}
+            />
         </SafeAreaView>
     </ScrollView>
 );
@@ -108,7 +116,7 @@ const MainNavigator = createDrawerNavigator(
         }
     },
     {
-        drawerBackgroundColor: 'gray',
+        drawerBackgroundColor: '#5e5e5e',
         contentComponent: CustomDrawerContentComponent
     }
 );
@@ -128,7 +136,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#5637DD',
+        backgroundColor: drawerHeaderBackground,
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -136,7 +144,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     drawerHeaderText: {
-        color: '#eaeaea',
+        color: drawerHeaderTextGray,
         fontSize: 12,
         fontStyle: 'italic',
         textAlign: 'center',
@@ -149,7 +157,7 @@ const styles = StyleSheet.create({
     },
     stackIcon: {
         marginLeft: 10,
-        color: '#fff',
+        color: stackIconColor,
         fontSize: 24
     },
 });
