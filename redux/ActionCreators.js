@@ -1,5 +1,5 @@
 import * as ActionTypes from './ActionTypes';
-import { baseURL } from '../shared/baseUrl';
+import { baseUrl } from '../shared/baseUrl';
 
 export const fetchEntries = () => dispatch => {
     return fetch(baseUrl + 'entries')
@@ -32,7 +32,7 @@ export const addEntries = (entries) => ({
 });
 
 export const fetchQuotes = () => dispatch => {
-    return fetch(baseUrl + 'quotes')
+    return fetch(`${baseUrl}quotes`)
         .then(response => {
             if (response.ok) {
                 return response;
@@ -56,7 +56,7 @@ export const quotesFailed = errMess => ({
     payload: errMess
 });
 
-export const addQuotes = (quotes) => ({
+export const addQuotes = quotes => ({
     type: ActionTypes.ADD_QUOTES,
-    payload: entries
+    payload: quotes
 });

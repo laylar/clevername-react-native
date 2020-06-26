@@ -3,6 +3,14 @@ import { FlatList } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import { View, Text } from 'react-native';
 import { ENTRIES } from '../shared/entries';
+//import { connect } from 'react-redux';
+//import { baseUrl } from '../shared/baseUrl';
+
+// mapStateToProps = state => {
+//     return {
+//         entries: state.entries
+//     }
+// }
 
 class EntrySnippet extends Component {
     constructor(props) {
@@ -11,13 +19,13 @@ class EntrySnippet extends Component {
             entries: ENTRIES
         }
     }
-
     static navigationOptions = {
         title: 'Entry Snippets'
     }
 
     render() {
         const { navigate } = this.props.navigation;
+
         const renderEntryItem = ({ item }) => {
             return (
                 <ListItem
@@ -41,5 +49,5 @@ class EntrySnippet extends Component {
     }
 
 }
-
 export default EntrySnippet;
+//export default connect(mapStateToProps)(EntrySnippet);

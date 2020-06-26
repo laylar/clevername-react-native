@@ -72,7 +72,7 @@ const CustomDrawerContentComponent = props => (
             style={styles.container}
             forceInset={{ top: 'always', horizontal: 'never' }}>
             <View style={{ flex: 1 }}>
-                <Image source={require('./images/medlogoSouviengraydark.png')} style={styles.drawerImage} />
+                <Image source={require('./images/logo.png')} style={styles.drawerImage} />
                 <View style={{ flex: 2 }}>
                     <Text style={styles.drawerHeaderText}>Remember</Text>
                 </View>

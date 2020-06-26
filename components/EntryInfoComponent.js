@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
 import { ENTRIES } from '../shared/entries'
+import { connect } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl';
+
+mapStateToProps = state => {
+    return {
+        entries: state.entries
+    };
+};
 
 function RenderEntry({ entry }) {
     if (entry) {
@@ -20,22 +28,22 @@ function RenderEntry({ entry }) {
 }
 
 class EntryInfo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            entries: ENTRIES
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         entries: ENTRIES
+    //     };
+    // }
 
     static navigationOptions = {
         title: 'Full Entry' //put the entry's date here?
     };
     render() {
         const entryId = this.props.navigation.getParam('entryId');
-        const entry = this.state.entries.filter(entry => entry.id === entryId)[0];
+        const entry = this.props.entries.entries.filter(entry => entry.id === entryId)[0];
         return <RenderEntry entry={entry} />
     }
 
 }
 
-export default EntryInfo;
+export default connect(mapStateToProps)(EntryInfo);
